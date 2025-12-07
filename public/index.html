@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Pilot - AI Career Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="toast-container"></div>
+    <div class="theme-toggle-wrapper">
+        <button class="icon-btn" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <span class="theme-icon">◑</span>
+        </button>
+    </div>
+
+    <div class="background-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- RESUME UPLOAD MODAL -->
+    <div class="upload-overlay" id="uploadOverlay">
+        <div class="upload-modal">
+            <div class="modal-icon">📂</div>
+            <h2>Initialize System</h2>
+            <p>Upload your resume to calibrate the navigation system.</p>
+
+            <div class="drop-zone" id="dropZone">
+                <div class="drop-icon">☁️</div>
+                <h3>Drag & Drop Resume</h3>
+                <p>or</p>
+                <button class="upload-btn" onclick="triggerUpload()">Select File</button>
+            </div>
+            <p class="file-status" id="fileStatus"></p>
+        </div>
+    </div>
+
+    <!-- SELECTION SCREEN -->
+    <main class="selection-container blur-content" id="selectionScreen">
+        <header class="selection-header">
+            <div class="logo-area">
+                <span class="logo-icon">✈️</span>
+                <h1>Job Pilot</h1>
+            </div>
+            <p class="subtitle">Select your flight path</p>
+
+            <button class="text-link-btn" onclick="triggerUpdateResume()">
+                ↻ Update Resume
+            </button>
+        </header>
+
+        <div class="cards-wrapper">
+            <!-- FAST SEARCH OPTION -->
+            <div class="mode-card fast-mode" onclick="selectMode('fast')">
+                <div class="card-icon">⚡️</div>
+                <h2>Fast Search</h2>
+                <p>Lightning quick matches based on core criteria.</p>
+                <!-- <div class="card-meta">~2 Minutes</div> -->
+            </div>
+
+            <!-- DEEP ANALYSIS OPTION -->
+            <div class="mode-card deep-mode" onclick="selectMode('deep')">
+                <div class="card-icon">🧠</div>
+                <h2>Deep Analysis</h2>
+                <p>Holistic career profiling and culture fit.</p>
+                <!-- <div class="card-meta">~10 Minutes</div> -->
+            </div>
+
+            <!-- GOD MODE (Coming Soon) -->
+            <div class="mode-card god-mode disabled">
+                <div class="card-icon">🤔🤔</div>
+                <h2>God Mode</h2>
+                <p>Coming soon. Stay Tuned.</p>
+                <div class="card-meta">Ultimate AI</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- CHAT INTERFACE (Initially Hidden) -->
+    <main class="app-container hidden" id="chatScreen">
+        <header class="chat-header">
+            <div class="header-info">
+                <h1>Job Pilot</h1>
+                <span class="separator">|</span>
+                <span class="mode-badge" id="modeBadge">Fast Mode</span>
+            </div>
+            <button class="close-btn" onclick="resetApp()">✕</button>
+        </header>
+        <div class="progress-container">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages injected by JS -->
+        </div>
+
+        <div class="typing-indicator hidden" id="typingIndicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <form class="chat-input-area" id="chatForm">
+            <input type="text" id="messageInput" placeholder="Type your answer..." autocomplete="off">
+            <button type="submit" id="sendBtn" disabled>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </button>
+        </form>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

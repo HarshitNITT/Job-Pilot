@@ -1,0 +1,63 @@
+/* SKELETON LOADER */
+.skeleton-card {
+    pointer-events: none;
+}
+
+.skeleton-line {
+    height: 16px;
+    background: linear-gradient(90deg, #2a2f3a 25%, #363c4a 50%, #2a2f3a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+    margin: 8px 0;
+}
+
+.skeleton-title {
+    width: 70%;
+    height: 20px;
+    margin-bottom: 12px;
+}
+
+.skeleton-company {
+    width: 40%;
+    height: 14px;
+}
+
+.skeleton-text {
+    width: 50%;
+    height: 12px;
+}
+
+.skeleton-description {
+    margin: 12px 0;
+}
+
+.skeleton-description .skeleton-line {
+    width: 100%;
+    margin: 6px 0;
+}
+
+.skeleton-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.skeleton-tag {
+    width: 60px;
+    height: 24px;
+    background: linear-gradient(90deg, #2a2f3a 25%, #363c4a 50%, #2a2f3a 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 12px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
